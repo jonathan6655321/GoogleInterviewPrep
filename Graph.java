@@ -1,6 +1,7 @@
 package GoogleInterviewPrep;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 import GoogleInterviewPrep.GitSetupTest.GraphInterface;
 
@@ -43,7 +44,8 @@ public class Graph implements GraphInterface{
 	
 	
 	class Node{
-		
+		int nodeKey;
+		public boolean marked = false;
 		LinkedList<Node> nodeChildren = new LinkedList<>();
 	}
 	
@@ -54,6 +56,7 @@ public class Graph implements GraphInterface{
 		
 		this.nodeList[maxNodeInserted+1] = insertedNode;
 		maxNodeInserted++;
+		insertedNode.nodeKey = maxNodeInserted;
 		
 		for (int parentIndex: parentsOfNode)
 		{
@@ -74,7 +77,8 @@ public class Graph implements GraphInterface{
 		Node nodeA = nodeList[a];
 		Node nodeB = nodeList[b];
 		
-		return DFS(nodeA,nodeB);
+//		return DFS(nodeA,nodeB);
+		return BFS(nodeA,nodeB);
 	}
 	
 	
@@ -98,11 +102,45 @@ public class Graph implements GraphInterface{
 	
 	private boolean BFS(Node root, Node targetNode)
 	{
+		Queue<Node> Q = new LinkedList<>();
+		LinkedList<Node> unmarkThese = new LinkedList<>();
+		boolean found = false;
+		
+		Q.add(root);
+		Node deqNode; 
+		
+		while(!Q.isEmpty())
+		{
+			deqNode = Q.poll();
+			unmarkThese.add(deqNode);
+			if (deqNode == targetNode)
+			{
+				found = true;
+				break;
+			}
+			
+			for (Node n: deqNode.nodeChildren)
+			{
+				if (!n.marked)
+				{
+					n.marked = true;	
+					Q.add(n);
+				}
+			}
+		}
 		
 		
+		// unmark them:
+		while (!Q.isEmpty())
+		{
+			unmarkThese.add(Q.poll());
+		}
 		
+		for (Node n: unmarkThese)
+		{
+			n.marked = false;
+		}
 		
+		return found;
 	}
-	
-	
 }
