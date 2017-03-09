@@ -125,5 +125,6 @@ public class GitSetupTest {
 			failed = true;
 			System.out.println(i);
 		}i++;
+		return !failed;
 	}
 }
