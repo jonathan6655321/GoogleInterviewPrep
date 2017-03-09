@@ -8,23 +8,27 @@ public class Graph implements GraphInterface{
 	
 	
 	public static void main(String[] args) {
-		Graph G = new Graph(10);
+		Graph G = new Graph(20);
 		
-		int[] l = new int[1];
-		l[0] = 0;
-		
-		G.insert(new int[0]);
-		G.insert(l);
-		G.insert(l);
-		G.insert(l);
-		G.insert(l);
-		G.insert(l);
-		G.insert(l);
-		G.insert(l);
-		G.insert(l);
-		System.out.println(G.nodeList[0].nodeChildren);
+		System.out.println(GitSetupTest.test1(G));
 		
 		
+		
+//		int[] l = new int[1];
+//		l[0] = 0;
+//		
+//		G.insert(new int[0]);
+//		G.insert(l);
+//		G.insert(l);
+//		G.insert(l);
+//		G.insert(l);
+//		G.insert(l);
+//		G.insert(l);
+//		G.insert(l);
+//		G.insert(l);
+//		System.out.println(G.nodeList[0].nodeChildren);
+//		
+//		
 	}
 	
 	Node[] nodeList;
@@ -91,4 +95,14 @@ public class Graph implements GraphInterface{
 			return false;
 		}
 	}
+	
+	private boolean BFS(Node root, Node targetNode)
+	{
+		
+		
+		
+		
+	}
+	
+	
 }
