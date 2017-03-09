@@ -8,15 +8,15 @@ public class GitSetupTest {
 		g.insert(new int[0]);		//0
 		g.insert(new int[]{0});		//1
 		g.insert(new int[]{0});		//2
-		g.insert(new int[]);		//3
+		g.insert(new int[]{});		//3
 		g.insert(new int[]{1,3});	//4
 		g.insert(new int[]{2});		//5
 		g.insert(new int[]{3,5});	//6
 		g.insert(new int[]{0,6});	//7
-		g.insert(new int[]);		//8
+		g.insert(new int[]{});		//8
 		g.insert(new int[]{8});		//9
 		g.insert(new int[]{7});		//10
-		g.insert(new int[]);		//11
+		g.insert(new int[]{});		//11
 		g.insert(new int[]{10});	//12
 		g.insert(new int[]{4,8});	//13
 		g.insert(new int[]{11,12});	//14
